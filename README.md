@@ -24,3 +24,8 @@ Collaboration: Encouraging a culture of shared responsibility, transparency, and
 Together, Cloud and DevOps empower organizations to innovate faster, deliver software more efficiently, and respond swiftly to market changes.
 
 ![d30](https://github.com/pankajsao11/cloud/assets/81400644/5282ade5-e405-4c8f-9299-a6a93ba4ceed)
+
+![cloud-comparison](https://github.com/user-attachments/assets/18d55d3f-3e17-4a6f-98da-55a66336aced)
+
+AWS Hands-on tutorial: https://aws.amazon.com/getting-started/hands-on/?getting-started-all.sort-by=item.additionalFields.content-latest-publish-date&getting-started-all.sort-order=desc&awsf.getting-started-category=*all
+
