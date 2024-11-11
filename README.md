@@ -29,3 +29,5 @@ Together, Cloud and DevOps empower organizations to innovate faster, deliver sof
 
 AWS Hands-on tutorial: https://aws.amazon.com/getting-started/hands-on/?getting-started-all.sort-by=item.additionalFields.content-latest-publish-date&getting-started-all.sort-order=desc&awsf.getting-started-category=*all
 
+Jenkins: https://www.jenkins.io/doc/tutorials/
+
