@@ -27,3 +27,16 @@ pipeline {
         }
     }
 }
+
+
+#Env-variable
+pipeline {
+    agent any
+    stages {
+        stage("Clean Up"){
+            steps {
+                echo "Build number: ${env.BUILD_NUMBER}"
+            }
+        }
+    }
+}
