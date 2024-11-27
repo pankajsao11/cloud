@@ -76,6 +76,24 @@ pipeline {
             }
         }
 
+        stage('Terraform Validate') {
+            steps {
+                script {
+                    // Initialize Terraform
+                    sh 'terraform validate'
+                }
+            }
+        }
+
+        stage('Terraform format') {
+            steps {
+                script {
+                    // Initialize Terraform
+                    sh 'terraform fmt --recursive'
+                }
+            }
+        }
+
         stage('Terraform Plan') {
             steps {
                 script {
