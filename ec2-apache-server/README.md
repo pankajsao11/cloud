@@ -18,16 +18,29 @@ Apache is a free, open-source service that allows users to create HTTP servers a
 
 ![sg](https://github.com/user-attachments/assets/72161b05-062d-446f-9484-da42aefa27cc)
 
+## Method-1 Using User Data
+![image](https://github.com/user-attachments/assets/c9727a99-3bd6-4a47-8dd5-9775632cbb43)
+After successful launching of ec2, ssh into the server and check apache status.
+
+## Methor-2 SSH-ing into the server and installing using step-by-step commands
+
+1. SSH into the Server using key-pair
 ![ssh](https://github.com/user-attachments/assets/f9dbc1d6-a16b-442c-953d-d6a19cf1e676)
 
+2. Update the system using below cmd
 ![update](https://github.com/user-attachments/assets/ed545b4e-a048-4a10-94d1-18a0fc83f00e)
 
+3. Install Apache
 ![install](https://github.com/user-attachments/assets/178d3e82-7bf0-4b7a-b775-6c842d988ebc)
 
+4. Start and enable apache then check the status
 ![enable-status](https://github.com/user-attachments/assets/841eabfc-02f3-41ad-9c1d-35f939f5d84d)
 
+5. use echo and type basic html message
 ![echo](https://github.com/user-attachments/assets/66c4945d-a643-427c-8d4b-a5ca09448005)
 
+6. Goto public ip/dns and you can see the final Apache webpage 
 ![apache-webpg](https://github.com/user-attachments/assets/0150e44b-7436-46d3-9f71-fd9797165f2e)
 
+7. Removing Apache from the instance
 ![remv-service](https://github.com/user-attachments/assets/bba4a593-db2a-4469-8ddc-01f088cb617f)
