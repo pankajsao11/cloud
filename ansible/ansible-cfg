@@ -1,0 +1,6 @@
+file_name = "ansible.cfg"
+  
+[defaults]
+inventory = ./hosts.yml
+remote_user = ubuntu
+private_key_file = ./key.pem
