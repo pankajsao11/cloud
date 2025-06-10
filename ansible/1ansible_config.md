@@ -1,3 +1,11 @@
+# Ansible Config
+The ansible.cfg file is the main configuration file for Ansible, a powerful automation tool used for configuration management, application deployment, and task automation.
+This file controls how Ansible behaves when it runs. You can customize settings like:
+Where to find your inventory (list of servers)
+Which SSH user to use
+Whether to use sudo (privilege escalation)
+Where to store logs
+How to handle timeouts, retries, and host key checking
 ## ansible installation:
 
 sudo yum update (RHL/CentOS) or sudo apt update (Ubuntu/Debian)
