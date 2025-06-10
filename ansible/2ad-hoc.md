@@ -1,4 +1,4 @@
-# An Ansible ad hoc command:
+# Ansible ad-hoc command:
 An Ansible ad-hoc command is a one-liner used to perform quick tasks on remote hosts without writing a full playbook, ad hoc commands are great for tasks you repeat rarely and uses the /usr/bin/ansible command-line tool to automate a single task on one or more managed nodes. ad hoc commands are quick and easy, but they are not reusable.
 ## for copying a file: 
 ansible workers -m ansible.builtin.copy -a "src=/home/ubuntu/ansible/hosts.yml dest=/home/ubuntu"
