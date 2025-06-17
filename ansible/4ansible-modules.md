@@ -37,14 +37,17 @@ here "-m ping" is the ping module, which checks if Ansible can connect to the ho
         msg: "{{ os_op.stdout }}"
 ```
 >> After executing the play we were not getting the desired o/p in terminal
+
 ![image](https://github.com/user-attachments/assets/4c86bdbc-786a-4fe0-8f74-4405ee490715)
 
 because it was running the commands in the host in background. Ansible runs the command but does not automatically print the output (stdout) unless you explicitly tell it to.
 So we modified and added few lines to print the output in the terminal:
 >>Got this error because we had mistake in chang_when (changed_when)
+
 ![image](https://github.com/user-attachments/assets/7faba442-d768-4905-875d-49c969a5f69a)
 
 >>final output after execution
+
 ![image](https://github.com/user-attachments/assets/57875f4c-9f0a-412c-9640-443d1689bfcf)
 
 
