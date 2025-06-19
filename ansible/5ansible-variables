@@ -1,0 +1,3 @@
+## Variables
+Ansible variables are a powerful way to make playbooks dynamic, reusable, and flexible. Variables in Ansible allow you to store values (like usernames, paths, package names, etc.) and reuse them throughout your playbooks, roles, and templates
+
