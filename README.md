@@ -34,6 +34,8 @@ Together, Cloud and DevOps empower organizations to innovate faster, deliver sof
 
 ![image](https://github.com/user-attachments/assets/9237fe2a-917d-4228-9edf-605acf73137c)
 
+## DevOps RoadMap
+![image](https://github.com/user-attachments/assets/5e93d97a-6c48-4a13-8d02-3b3a9f676440)
 
 ## Terraform Project Structure
 ![image](https://github.com/user-attachments/assets/c0996524-040a-46ef-bd44-9c412879e78c)
