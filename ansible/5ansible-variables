@@ -1,3 +1,40 @@
 ## Variables
 Ansible variables are a powerful way to make playbooks dynamic, reusable, and flexible. Variables in Ansible allow you to store values (like usernames, paths, package names, etc.) and reuse them throughout your playbooks, roles, and templates
 
+## creating directory using vars
+
+```
+- name: Creating directory using vars
+  hosts: workers
+  become: yes
+  vars:
+    dir_name: hosts
+  tasks:
+    - name: Creating hosts directory
+      file:
+        path: "/home/ubuntu/{{ dir_name }}"
+        state: directory
+```
+
+## Installing package using vars file
+
+Create separate vars.yml file:
+>>package_name: nginx
+>>service_name: nginx
+
+```
+- name: Install and start service
+  hosts: workers
+  become: yes
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Install package
+      apt:
+        name: "{{ package_name }}"
+        state: present
+    - name: start service
+      service:
+        name: "{{ service_name }}"
+        state: started
+```
