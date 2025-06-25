@@ -40,6 +40,10 @@ Together, Cloud and DevOps empower organizations to innovate faster, deliver sof
 ## Terraform Project Structure
 ![image](https://github.com/user-attachments/assets/c0996524-040a-46ef-bd44-9c412879e78c)
 
+## Linux File paths
+![image](https://github.com/user-attachments/assets/400fc320-b78e-4e34-8700-695e791887a6)
+
+
 AWS Hands-on tutorial: https://aws.amazon.com/getting-started/hands-on/?getting-started-all.sort-by=item.additionalFields.content-latest-publish-date&getting-started-all.sort-order=desc&awsf.getting-started-category=*all
 
 Jenkins: https://www.jenkins.io/doc/tutorials/
