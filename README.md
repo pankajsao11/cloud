@@ -40,6 +40,40 @@ Together, Cloud and DevOps empower organizations to innovate faster, deliver sof
 ## Terraform Project Structure
 ![image](https://github.com/user-attachments/assets/c0996524-040a-46ef-bd44-9c412879e78c)
 
+Terraform module folder structure:
+```
+terraform-project/
+├── modules/
+│   └── ec2/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+├── environments/
+│   ├── dev/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── terraform.tfvars
+│   └── prod/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── terraform.tfvars
+├── backend.tf
+└── provider.tf
+```
+>> environments/dev/main.tf
+```
+module "ec2_instance" {
+  source        = "../../modules/ec2"
+  ami_id        = var.ami_id
+  instance_type = var.instance_type
+  name          = "dev-instance"
+}
+```
+The source = "../../modules/ec2" line in the parent module tells Terraform to use the child module located in the modules/ec2 directory. 
+../../modules/ec2 means: go up two directories and into modules/ec2. This is the most common setup for reusable modules in the same repo.
+
+![image](https://github.com/user-attachments/assets/d0e4d3e9-c249-463a-bcd5-9af4305a16b7)
+
 ## Linux File paths
 ![image](https://github.com/user-attachments/assets/400fc320-b78e-4e34-8700-695e791887a6)
 
