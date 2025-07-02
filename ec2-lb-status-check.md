@@ -51,3 +51,10 @@ Then:
 3/3 = Healthy
 0/3, 1/3, 2/3 = Still checking
 0/2 = Unhealthy
+
+| Check                                                   | Description                                                                                                                                                                            
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------
+| **1. System Status Check**                              | Verifies that the **underlying AWS infrastructure** (e.g., hardware, network, power) is functioning properly.                                                                                                      |
+| **2. Instance Status Check**                            | Confirms that the **OS on your EC2 instance** is responding to AWS. It checks the instance's network stack, software config, etc.                                                                                  |
+| **3. Reachability Check** (sometimes optional/implicit) | Confirms that the instance can be reached via **network (e.g., SSH or HTTP)**. This may include Security Group and Route Table verification if you're using automated reachability checks (e.g., via ELB or CloudWatch).
+
