@@ -176,3 +176,45 @@ sysadmin: pankajsao11@gmail.com
   roles:
     - role: apache2-role
 ```
+
+<img width="1228" height="565" alt="image" src="https://github.com/user-attachments/assets/957c33f2-4e1d-4ee1-89a4-a6c0243acffb" />
+
+## Task Execution order
+
+>> task-order.yml
+```
+- name: Task order execution
+  hosts: workers
+  become: yes
+  tasks:
+    - name: A normal task
+      debug:
+        msg: "I'm a normal task"
+
+
+  post_tasks:
+  - name: Last task
+    debug:
+      msg: "I'm a last task to be executed"
+  
+  pre_tasks:
+  - name: first task
+    debug:
+      msg: "I'm a first task to be executed"
+
+  roles:
+    - role: myrole
+```
+
+>> roles/myrole/tasks/main.yml
+
+```
+- name: 
+    debug:
+      msg: "I'm a first task to be executed"
+
+- name: 
+    debug:
+      msg: "I'm a last task to be executed"
+```
+
