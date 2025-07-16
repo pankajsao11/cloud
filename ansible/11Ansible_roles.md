@@ -193,14 +193,14 @@ sysadmin: pankajsao11@gmail.com
 
 
   post_tasks:
-  - name: Last task
-    debug:
-      msg: "I'm a last task to be executed"
+    - name: Last task
+      debug:
+        msg: "I'm a last task to be executed"
   
   pre_tasks:
-  - name: first task
-    debug:
-      msg: "I'm a first task to be executed"
+    - name: first task
+      debug:
+        msg: "I'm a first task to be executed"
 
   roles:
     - role: myrole
@@ -210,11 +210,12 @@ sysadmin: pankajsao11@gmail.com
 
 ```
 - name: 
-    debug:
-      msg: "I'm a first task to be executed"
+  debug: 
+    msg: "I'm a first task to be executed"
 
 - name: 
-    debug:
-      msg: "I'm a last task to be executed"
+  debug:
+    msg: "I'm a last task to be executed"  
 ```
 
+<img width="1092" height="623" alt="image" src="https://github.com/user-attachments/assets/7ae90ee9-1dbc-4589-a23f-ee0da3d97753" />
