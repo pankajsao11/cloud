@@ -68,7 +68,7 @@ Specifies the account, user, service, or entity to which the policy is applied. 
 Allows policies to take effect only if certain conditions are met. Uses operators (e.g., StringEquals, NumericLessThan), keys (context values, like aws:username), and values.
 
 Example:
-
+```
 json
 "Condition": {
   "StringEquals": {
@@ -76,3 +76,4 @@ json
   }
 }
 Global condition keys are prefixed with aws:, service-specific keys use a service prefix.
+```
