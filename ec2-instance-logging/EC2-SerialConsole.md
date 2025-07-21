@@ -58,6 +58,7 @@ At the prompt, re-enter the password.
 <img width="1365" height="646" alt="image" src="https://github.com/user-attachments/assets/0427a5b7-c410-4030-9262-d31bbea1d52e" />
 
 
+>> To log in to an EC2 instance using the serial console, especially when it has only private IPs (i.e., no public IP or internet access), follow these steps:
 ```
 ## Prerequisites
 IAM Permissions:
