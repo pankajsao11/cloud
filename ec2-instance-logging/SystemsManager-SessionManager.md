@@ -102,9 +102,13 @@ Open the Amazon EC2 console > Select your instance > Click "Connect" > Choose "S
 
 ## Steps via AWS CLI:
 
-Install the Session Manager plugin for AWS CLI:
-For macOS: brew install session-manager-plugin
-For Windows: Download and run the installer from AWS
-For Linux: Follow AWS documentation for your distribution
+1. Install the Session Manager plugin for AWS CLI:
+2. For macOS: brew install session-manager-plugin
+3. For Windows: Download and run the installer from AWS
+4. For Linux: Follow AWS documentation for your distribution
+
 Start a session:
 aws ssm start-session --target i-1234567890abcdef0
+
+<img width="1362" height="675" alt="image" src="https://github.com/user-attachments/assets/3d5dcf6b-7e85-46cc-9e67-1b196172be73" />
+
