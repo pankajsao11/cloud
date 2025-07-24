@@ -26,7 +26,9 @@ Remote Desktop Protocol, is a proprietary protocol developed by Microsoft that a
 <img width="1358" height="643" alt="image" src="https://github.com/user-attachments/assets/cbd9b1ce-4902-4be1-b268-86b9f933c71d" />
 
 7. Click "Download remote desktop file"
+
+<img width="1365" height="643" alt="image" src="https://github.com/user-attachments/assets/b62345d0-14b8-4dd5-90cf-bb15d409ed82" />
+
 8. Open the RDP file with your RDP client
 9. When prompted, enter the administrator credentials
 
-<img width="1365" height="643" alt="image" src="https://github.com/user-attachments/assets/b62345d0-14b8-4dd5-90cf-bb15d409ed82" />
