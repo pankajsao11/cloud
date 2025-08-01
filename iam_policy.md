@@ -84,6 +84,7 @@ S3 bucket policies are similar to IAM policies but are specifically used to cont
 
 >> Key Components of S3 Bucket Policies:
 
+```
 Version: Specifies the version of the policy language. The current version is "2012-10-17".
 Statement: A list of individual statements (permissions) within the policy.
 Effect: Determines whether the statement allows or denies access. Possible values are "Allow" or "Deny".
@@ -91,3 +92,4 @@ Principal: Specifies the user, account, service, or other entity that is allowed
 Action: Specifies the actions that are allowed or denied. Actions are typically in the form of service:action (e.g., s3:GetObject).
 Resource: Specifies the ARN of the resource to which the action applies. This can be a specific resource or a wildcard (*).
 Condition: (Optional) Specifies conditions under which the policy is in effect. Conditions use operators like StringEquals, IpAddress, etc., to add additional constraints.
+```
