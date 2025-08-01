@@ -47,6 +47,7 @@ Informational responses (100–199):
 100 Continue
 101 Switching Protocols
 102 Processing
+
 Successful responses (200–299):
 
 200 OK
@@ -54,6 +55,7 @@ Successful responses (200–299):
 202 Accepted
 204 No Content
 206 Partial Content
+
 Redirection messages (300–399):
 
 300 Multiple Choices
@@ -63,6 +65,7 @@ Redirection messages (300–399):
 304 Not Modified
 307 Temporary Redirect
 308 Permanent Redirect
+
 Client error responses (400–499):
 
 400 Bad Request
@@ -76,6 +79,7 @@ Client error responses (400–499):
 414 URI Too Long
 415 Unsupported Media Type
 429 Too Many Requests
+
 Server error responses (500–599):
 
 500 Internal Server Error
