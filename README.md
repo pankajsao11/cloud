@@ -78,6 +78,11 @@ The source = "../../modules/ec2" line in the parent module tells Terraform to us
 ![image](https://github.com/user-attachments/assets/400fc320-b78e-4e34-8700-695e791887a6)
 
 
+<img width="558" height="528" alt="image" src="https://github.com/user-attachments/assets/7c79becc-596f-4973-86e9-91f5e213fd0a" />
+
+<img width="717" height="466" alt="image" src="https://github.com/user-attachments/assets/4ef77a45-f0ed-4a7a-a42a-1a42100e1321" />
+
+
 AWS Hands-on tutorial: https://aws.amazon.com/getting-started/hands-on/?getting-started-all.sort-by=item.additionalFields.content-latest-publish-date&getting-started-all.sort-order=desc&awsf.getting-started-category=*all
 
 Jenkins: https://www.jenkins.io/doc/tutorials/
