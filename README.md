@@ -16,15 +16,23 @@ DevOps is a set of practices that combines software development (Dev) and IT ope
 
 ![d14](https://github.com/pankajsao11/cloud/assets/81400644/5aa1dfc3-8cf6-4988-bcb7-c655ee21d6ba)
 
+```
+#Continuous Integration (CI): CI is the practice of frequently merging code changes into a central repository, where automated tests run to ensure the code integrates smoothly.
+Example: A developer pushes a bug fix to the repository, and CI tools automatically run tests to ensure the fix integrates correctly with the existing code.
+
+#Continuous Delivery (CD): CD automates the delivery of code to testing and production environments, ensuring that changes are always ready for deployment at any time.
+Example: After CI tests pass, the code will automatically be pushed to a staging environment and can be deployed to production without manual intervention.
+```
 
 Key principles of DevOps include:
-
+```
 Continuous Integration (CI): Automating the integration of code changes from multiple contributors into a shared repository.
 Continuous Delivery (CD): Automating the release process to ensure that software can be reliably released at any time.
 Infrastructure as Code (IaC): Managing and provisioning computing infrastructure using machine-readable definition files.
 Monitoring and Logging: Continuously monitoring applications and infrastructure to detect and respond to issues in real-time.
 Collaboration: Encouraging a culture of shared responsibility, transparency, and collaboration across all stages of the software development lifecycle.
 Together, Cloud and DevOps empower organizations to innovate faster, deliver software more efficiently, and respond swiftly to market changes.
+```
 
 ![d30](https://github.com/pankajsao11/cloud/assets/81400644/5282ade5-e405-4c8f-9299-a6a93ba4ceed)
 
