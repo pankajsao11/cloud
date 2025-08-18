@@ -65,28 +65,30 @@ Regular Monitoring: Load balancer sends periodic requests to registered targets 
 
 2. Health Check Types:-
 
-HTTP/HTTPS: Expects 200 OK response from specified path
-TCP: Successful connection establishment
-Threshold Logic:
+HTTP/HTTPS: Expects 200 OK response from specified path; TCP: Successful connection establishment
 
-Unhealthy: Fails 2-10 consecutive checks → marked unhealthy
-Healthy: Passes 2-10 consecutive checks → marked healthy
+#Threshold Logic:
+Unhealthy: Fails 2-10 consecutive checks → marked unhealthy, 
+Healthy: Passes 2-10 consecutive checks → marked healthy, 
 Traffic Routing: Only healthy targets receive traffic
 
 3. Key Parameters:
-
+```
 Protocol and port
 Check interval (frequency)
 Timeout duration
 Health/unhealthy thresholds
 Target path (for HTTP/HTTPS)
+```
 
 4. Quick Example:
+```
 Health check every 30 seconds
 Timeout after 5 seconds
 Mark unhealthy after 2 failed checks
 Mark healthy after 3 successful checks
 Check path: /health expecting 200 response
+```
 
 5. Result:
 Automatic traffic distribution to only healthy instances
