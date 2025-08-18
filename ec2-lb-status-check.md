@@ -58,3 +58,37 @@ Then:
 | **2. Instance Status Check**                            | Confirms that the **OS on your EC2 instance** is responding to AWS. It checks the instance's network stack, software config, etc.                                                                                  |
 | **3. Reachability Check** (sometimes optional/implicit) | Confirms that the instance can be reached via **network (e.g., SSH or HTTP)**. This may include Security Group and Route Table verification if you're using automated reachability checks (e.g., via ELB or CloudWatch).
 
+
+## Load Balancer Health Check Working 
+1. How It Works:-
+Regular Monitoring: Load balancer sends periodic requests to registered targets (every 5-300 seconds)
+
+2. Health Check Types:-
+
+HTTP/HTTPS: Expects 200 OK response from specified path
+TCP: Successful connection establishment
+Threshold Logic:
+
+Unhealthy: Fails 2-10 consecutive checks → marked unhealthy
+Healthy: Passes 2-10 consecutive checks → marked healthy
+Traffic Routing: Only healthy targets receive traffic
+
+3. Key Parameters:
+
+Protocol and port
+Check interval (frequency)
+Timeout duration
+Health/unhealthy thresholds
+Target path (for HTTP/HTTPS)
+
+4. Quick Example:
+Health check every 30 seconds
+Timeout after 5 seconds
+Mark unhealthy after 2 failed checks
+Mark healthy after 3 successful checks
+Check path: /health expecting 200 response
+
+5. Result:
+Automatic traffic distribution to only healthy instances
+Failed instances automatically removed from rotation
+Integration with Auto Scaling for instance replacement
