@@ -11,6 +11,8 @@ Key benefits of cloud computing include:
 
 >>Disaster Recovery: Enhance business continuity with robust backup and recovery solutions.
 
+<img width="1280" height="1777" alt="image" src="https://github.com/user-attachments/assets/46c52e35-6928-4c26-8d9b-54bc4c2c9d51" />
+
 ## DevOps:
 DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). The goal of DevOps is to shorten the development lifecycle and deliver high-quality software continuously. DevOps fosters a culture of collaboration and communication between development and operations teams, breaking down silos and automating processes to improve efficiency and reliability.
 
