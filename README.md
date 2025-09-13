@@ -92,6 +92,7 @@ The source = "../../modules/ec2" line in the parent module tells Terraform to us
 
 <img width="717" height="466" alt="image" src="https://github.com/user-attachments/assets/4ef77a45-f0ed-4a7a-a42a-1a42100e1321" />
 
+>>Cache invalidation refers to ensuring that outdated cached data is either removed or refreshed so that future accesses get up-to-date content, rather than stale results.
 
 AWS Hands-on tutorial: https://aws.amazon.com/getting-started/hands-on/?getting-started-all.sort-by=item.additionalFields.content-latest-publish-date&getting-started-all.sort-order=desc&awsf.getting-started-category=*all
 
