@@ -94,6 +94,33 @@ The source = "../../modules/ec2" line in the parent module tells Terraform to us
 
 >>Cache invalidation refers to ensuring that outdated cached data is either removed or refreshed so that future accesses get up-to-date content, rather than stale results.
 
+
+## Deployment strategies in DevOps
+DevOps deployment strategies define how new software versions are released to production while minimizing risk and downtime. These strategies are key to achieving reliable, rapid, and continuous delivery.
+
+Blue-Green Deployment: Maintains two environments (blue for the existing version, green for the new version). Once the green environment passes tests, traffic switches from blue to green. This allows quick rollbacks if issues occur but involves dual infrastructure costs.
+
+Canary Deployment: Gradually shifts traffic to the new version by releasing it to a small group of users first (“canaries”), monitoring performance and errors, then expanding to all users if successful. Canary deployments lower risk but require good monitoring and rollback management.
+
+Rolling Deployment: Updates nodes or servers one at a time, so a part of the system always runs the old version, minimizing service interruption. This approach is simple and cost-effective but may cause temporary inconsistencies.
+
+Immutable Deployment: Deploys new releases as completely new infrastructure (such as new containers or VMs), without modifying existing ones. This ensures consistency but can be resource-intensive.
+
+Feature Flags: Allows selectively enabling/disabling new features for users, independently of code deployments. This enables rapid experimentation and safer deployments.
+
+Continuous Deployment/Continuous Delivery (CI/CD): Automates the release pipeline so tested code changes are deployed to production quickly. This maximizes automation but relies on strong testing and monitoring practices.
+
+Best Practices
+Automate deployments and rollbacks to ensure consistency and speed.
+
+Use monitoring and alerting tools to detect problems early.
+
+Maintain strict version control and documentation for all changes.
+
+Prefer small, incremental changes for easier troubleshooting and rollback.
+
+Train all teams, including database administrators, in DevOps methodologies and tool usage.
+
 AWS Hands-on tutorial: https://aws.amazon.com/getting-started/hands-on/?getting-started-all.sort-by=item.additionalFields.content-latest-publish-date&getting-started-all.sort-order=desc&awsf.getting-started-category=*all
 
 Jenkins: https://www.jenkins.io/doc/tutorials/
