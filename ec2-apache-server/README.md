@@ -21,7 +21,7 @@ Apache is a free, open-source service that allows users to create HTTP servers a
 ![image](https://github.com/user-attachments/assets/c9727a99-3bd6-4a47-8dd5-9775632cbb43)
 After successful launching of ec2, ssh into the server and check apache status.
 
-## Methor-2 SSH-ing into the server and installing using step-by-step commands
+## Method-2 SSH-ing into the server and installing using step-by-step commands
 
 1. SSH into the Server using key-pair
 ![ssh](https://github.com/user-attachments/assets/f9dbc1d6-a16b-442c-953d-d6a19cf1e676)
