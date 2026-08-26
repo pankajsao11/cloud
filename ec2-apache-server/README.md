@@ -11,7 +11,6 @@ Amazon EC2 (is a cost-effective web service that provides users with compute cap
 VPC (Virtual Private Cloud)
 A vpc is a foundational service that allows you to create a secure private network in the AWS cloud where you launch your resources. Think of it as your own private slice of the Amazon cloud. An EC2 instance is launched Inside this VPC, along with a public (or private) subnet and internet gateway to allow traffic to and from the internet. Find more info on VPCs here.
 
-Apache
 Apache is a free, open-source service that allows users to create HTTP servers and deliver websites and web applications.
 
 ![ec2](https://github.com/user-attachments/assets/cd476024-2287-4367-acd4-3a63091de1eb)
