@@ -2513,3 +2513,588 @@ By the end of this guide, you should be able to:
 - Design basic AWS VPC architectures.
 - Explain AWS route tables, IGW, NAT Gateway, Security Groups, NACLs, VPC endpoints, VPC Peering, and Transit Gateway.
 - Solve certification-style networking questions.
+
+
+# CIDR Subnetting — Magic / Interesting Octet Method
+
+## 1. What is the Interesting Octet?
+
+The **magic octet** (also called the **interesting octet**) is a shortcut used to find subnet ranges quickly without converting the entire IP address into binary.
+
+### Example
+
+```text
+192.168.10.0/26
+```
+
+Convert `/26` to a subnet mask:
+
+```text
+/26
+11111111.11111111.11111111.11000000
+255.255.255.192
+```
+
+The interesting octet is the octet where the subnet mask is neither `255` nor `0`:
+
+```text
+255.255.255.192
+            ↑
+     Interesting octet
+```
+
+Here, the **4th octet** is the interesting octet.
+
+---
+
+## 2. Calculate the Magic Number
+
+Use:
+
+```text
+Magic Number = 256 - value in the interesting octet
+```
+
+For:
+
+```text
+255.255.255.192
+```
+
+we get:
+
+```text
+256 - 192 = 64
+```
+
+Therefore:
+
+```text
+Magic Number = 64
+```
+
+The magic number tells us the interval between subnet boundaries.
+
+---
+
+## 3. Find the Subnet Ranges
+
+Start at zero and increment by the magic number:
+
+```text
+0
+64
+128
+192
+```
+
+Therefore:
+
+```text
+192.168.10.0/26
+192.168.10.64/26
+192.168.10.128/26
+192.168.10.192/26
+```
+
+---
+
+## 4. Find the Range of a Particular Subnet
+
+Consider:
+
+```text
+192.168.10.64/26
+```
+
+The next subnet begins at:
+
+```text
+192.168.10.128
+```
+
+Therefore, the broadcast address is one IP before the next subnet:
+
+```text
+192.168.10.127
+```
+
+So:
+
+```text
+Network:
+192.168.10.64
+
+First Host:
+192.168.10.65
+
+Last Host:
+192.168.10.126
+
+Broadcast:
+192.168.10.127
+```
+
+---
+
+## 5. Why Does the Magic Number Work?
+
+For `/26`:
+
+```text
+11111111.11111111.11111111.11000000
+```
+
+There are 6 host bits remaining:
+
+```text
+11000000.000000
+  ↑↑      ↑↑↑↑↑↑
+network    host
+```
+
+The number of addresses in each subnet is:
+
+```text
+2^6 = 64
+```
+
+Therefore, subnet boundaries are:
+
+```text
+0
+64
+128
+192
+```
+
+The magic-number calculation:
+
+```text
+256 - 192 = 64
+```
+
+is simply a quick way to get the same subnet size.
+
+---
+
+## 6. Example: /27
+
+Given:
+
+```text
+192.168.1.0/27
+```
+
+### Step 1 — Convert CIDR to subnet mask
+
+```text
+/27
+11111111.11111111.11111111.11100000
+
+255.255.255.224
+```
+
+### Step 2 — Find the interesting octet
+
+```text
+255.255.255.224
+            ↑
+```
+
+The 4th octet is interesting.
+
+### Step 3 — Calculate the magic number
+
+```text
+256 - 224 = 32
+```
+
+### Step 4 — Find subnet boundaries
+
+```text
+192.168.1.0/27
+192.168.1.32/27
+192.168.1.64/27
+192.168.1.96/27
+192.168.1.128/27
+192.168.1.160/27
+192.168.1.192/27
+192.168.1.224/27
+```
+
+There are:
+
+```text
+2^3 = 8 subnets
+```
+
+Each subnet contains:
+
+```text
+2^(32-27) = 32 addresses
+```
+
+Traditionally:
+
+```text
+32 - 2 = 30 usable hosts
+```
+
+---
+
+## 7. Example Where the Interesting Octet Is the 3rd
+
+Consider:
+
+```text
+172.16.0.0/20
+```
+
+Convert `/20`:
+
+```text
+11111111.11111111.11110000.00000000
+
+255.255.240.0
+```
+
+The interesting octet is the **3rd octet**:
+
+```text
+255.255.240.0
+       ↑
+```
+
+Why?
+
+```text
+255 = completely network
+0   = completely host
+240 = mixture of network and host bits
+```
+
+---
+
+## 8. Calculate the Magic Number for /20
+
+Interesting octet:
+
+```text
+240
+```
+
+Therefore:
+
+```text
+256 - 240 = 16
+```
+
+Magic number:
+
+```text
+16
+```
+
+Increment the **third octet** by 16:
+
+```text
+172.16.0.0/20
+172.16.16.0/20
+172.16.32.0/20
+172.16.48.0/20
+172.16.64.0/20
+172.16.80.0/20
+...
+```
+
+Notice that the **third octet** changes, not the fourth.
+
+---
+
+## 9. Find the Range of 172.16.32.0/20
+
+The subnet is:
+
+```text
+172.16.32.0/20
+```
+
+The next subnet starts at:
+
+```text
+172.16.48.0
+```
+
+Therefore:
+
+```text
+Network:
+172.16.32.0
+
+First Host:
+172.16.32.1
+
+Last Host:
+172.16.47.254
+
+Broadcast:
+172.16.47.255
+```
+
+Why does it end at `47`?
+
+```text
+32 + 16 = 48
+```
+
+The next subnet begins at `48`, so the current subnet ends at `47.255`.
+
+---
+
+## 10. Example: /23
+
+Given:
+
+```text
+10.10.0.0/23
+```
+
+Subnet mask:
+
+```text
+255.255.254.0
+```
+
+Interesting octet:
+
+```text
+255.255.254.0
+       ↑
+```
+
+The 3rd octet is interesting.
+
+Magic number:
+
+```text
+256 - 254 = 2
+```
+
+Subnet boundaries:
+
+```text
+10.10.0.0/23
+10.10.2.0/23
+10.10.4.0/23
+10.10.6.0/23
+10.10.8.0/23
+...
+```
+
+For:
+
+```text
+10.10.4.0/23
+```
+
+the range is:
+
+```text
+Network:
+10.10.4.0
+
+First Host:
+10.10.4.1
+
+Last Host:
+10.10.5.254
+
+Broadcast:
+10.10.5.255
+```
+
+This subnet contains:
+
+```text
+32 - 23 = 9 host bits
+
+2^9 = 512 addresses
+```
+
+---
+
+## 11. Complete Shortcut
+
+Whenever you receive a CIDR subnetting question:
+
+```text
+Step 1:
+CIDR → Subnet Mask
+
+Step 2:
+Find the interesting octet
+
+Step 3:
+Calculate:
+
+256 - value in interesting octet
+
+Step 4:
+Use that result as the block/magic size
+
+Step 5:
+Start from the subnet's starting value and
+increment the interesting octet by the magic number
+
+Step 6:
+The next subnet boundary tells you where the
+current subnet ends
+
+Step 7:
+Broadcast = one address before the next subnet
+```
+
+---
+
+## 12. Magic Number Cheat Sheet
+
+| CIDR | Subnet Mask | Interesting Octet | Magic Number |
+|---|---|---:|---:|
+| `/25` | `255.255.255.128` | 4th | 128 |
+| `/26` | `255.255.255.192` | 4th | 64 |
+| `/27` | `255.255.255.224` | 4th | 32 |
+| `/28` | `255.255.255.240` | 4th | 16 |
+| `/29` | `255.255.255.248` | 4th | 8 |
+| `/30` | `255.255.255.252` | 4th | 4 |
+| `/23` | `255.255.254.0` | 3rd | 2 |
+| `/22` | `255.255.252.0` | 3rd | 4 |
+| `/21` | `255.255.248.0` | 3rd | 8 |
+| `/20` | `255.255.240.0` | 3rd | 16 |
+| `/19` | `255.255.224.0` | 3rd | 32 |
+| `/18` | `255.255.192.0` | 3rd | 64 |
+| `/17` | `255.255.128.0` | 3rd | 128 |
+
+---
+
+## 13. Easy Mental Model
+
+Think of the **interesting octet as the "jumping octet."**
+
+### Example 1
+
+```text
+192.168.1.0/26
+
+255.255.255.192
+            ↑
+       Jumping octet
+```
+
+Magic number:
+
+```text
+256 - 192 = 64
+```
+
+Jump by 64:
+
+```text
+0 → 64 → 128 → 192
+```
+
+### Example 2
+
+```text
+172.16.0.0/20
+
+255.255.240.0
+       ↑
+   Jumping octet
+```
+
+Magic number:
+
+```text
+256 - 240 = 16
+```
+
+Jump by 16:
+
+```text
+0 → 16 → 32 → 48 → 64 → ...
+```
+
+---
+
+## 14. Key Rule to Memorize
+
+> **Find the octet where the subnet mask is neither `255` nor `0`. That is the interesting octet.**
+
+Then:
+
+```text
+Magic Number = 256 - mask value in that octet
+```
+
+Then:
+
+```text
+Subnet boundaries = increments of the magic number
+```
+
+Example:
+
+```text
+255.255.240.0
+       ↑
+       240
+
+256 - 240 = 16
+
+Subnet boundaries:
+0, 16, 32, 48, 64, ...
+```
+
+---
+
+## 15. Practice Question
+
+Try solving this without converting the IP to binary:
+
+> What subnet does `192.168.10.75/26` belong to?
+
+Use:
+
+```text
+1. Find the subnet mask.
+2. Find the interesting octet.
+3. Calculate the magic number.
+4. Find the subnet boundaries.
+5. Identify which boundary contains .75.
+6. Find network, first host, last host, and broadcast.
+```
+
+### Answer
+
+```text
+/26
+255.255.255.192
+
+Magic number:
+256 - 192 = 64
+
+Subnet boundaries:
+0, 64, 128, 192
+```
+
+`75` falls between `64` and `127`.
+
+Therefore:
+
+```text
+Network:    192.168.10.64
+First Host: 192.168.10.65
+Last Host:  192.168.10.126
+Broadcast:  192.168.10.127
+```
